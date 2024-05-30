@@ -1,0 +1,47 @@
+# https://github.com/cegepdefi
+
+# telecharger l'image apache
+docker pull httpd
+
+# afficher la liste des images telecharges
+docker images
+
+# vous deplacer dans le folder "Presentation_Docker"
+cd ~/Downloads/Presentation_Docker
+
+# changer les droit du folder "LePojet" pour que le container a le droit d'acceder.
+sudo chmod -R 755 ./LeProjet
+
+# creer le container avec notre projet.
+# 1) changer "nom-container".
+# 2) "./LeProjet/" este le chemin absolut du folder "LeProjet" pour le partager avec le container.
+# 3) httpd est le nom de l'image apache que nous avon telecharge.
+# 4) 80 est le port de apache "Du container".
+# 5) 8080 est le port pour nous
+# "il se peut que d'autre service utilise deja le port 80 dans nottre ordinateur Ubuntu,
+# donc on utilise le port 8080. on peut le changer pour un autre port
+# exemple: (8081:80) ou (8082:80). mais on ne peut pas changer le port du service apache du container (80)".
+# on ne peut pas changer le chemin d'apache du container "/usr/local/apache2/htdocs/".
+docker run -dit --name nom-container -p 8080:80 -v ./LeProjet/:/usr/local/apache2/htdocs/ httpd:latest
+
+# afficher la liste de containers pour voir si nottre container a ete cree.
+# le "CONTAINER ID" est importante pour les commandes "STOP, START et RM"
+docker ps -all
+
+# si le "STATUS" du container dit "Up 1 second", cela signifi que le container es en marche.
+# si le "STATUS" du container dit "Exited", cela signifi que le container es arrete.
+
+# ouvrir firefox et ecrire
+localhost:8080
+
+# si vous avez un message qui dit "Vous avez pas le droit d'acces",
+# vous devez verifier l'acces que vous avez donnes au folder "LePojet" et aussi voir le firewall.
+
+# pour arreter un container il faut son ID, utiliser la commande "docker ps -all" pour trouver l'ID.
+docker stop id
+
+# pour effacer un container il faut son ID, utiliser la commande "docker ps -all" pour trouver l'ID.
+docker rm id
+
+# pour effacer une image
+
