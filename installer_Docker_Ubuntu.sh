@@ -29,7 +29,11 @@ sudo apt install -y docker-ce
 # Vérifier l'état de Docker
 # sudo systemctl status docker
 
+# installer docker compose
+sudo apt install -y docker-compose
+
 # Ajoutez l'utilisateur actuel au groupe Docker pour éviter d'utiliser sudo lors de l'exécution de Docker
 sudo usermod -aG docker ${USER}
 
 echo "Installation complete. Please log out and log back in for changes to take effect."
+sudo reboot

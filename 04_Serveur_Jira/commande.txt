@@ -4,8 +4,11 @@ cd cheminRepertoire
 # Creer l'image
 docker build -t mon-serveur-jira .
 
+# installer docker compose
+sudo apt -y install docker-compose
+
 # creer container avec l'image
 docker-compose up -d
 
 # pour ouvrir le site web
-http://IP:8082/
+http://IP:8084/

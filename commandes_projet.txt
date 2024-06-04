@@ -7,7 +7,7 @@ docker pull httpd
 docker images
 
 # vous deplacer dans le folder "Presentation_Docker"
-cd ~/Downloads/Presentation_Docker
+cd ~/Downloads/QA_Presentation_Docker-main
 
 # changer les droit du folder "01_PageWeb_StatiqueSimple" pour que le container a le droit d'acceder.
 sudo chmod -R 755 ./01_PageWeb_StatiqueSimple

@@ -9,4 +9,4 @@ ENV ATL_JDBC_USER=jiradbuser
 ENV ATL_JDBC_PASSWORD=jiradbpwd
 
 # Expose the default Jira port
-EXPOSE 8082
+EXPOSE 8084

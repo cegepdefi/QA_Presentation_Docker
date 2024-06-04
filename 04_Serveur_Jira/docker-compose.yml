@@ -10,7 +10,7 @@ services:
       - ATL_JDBC_USER=jiradbuser
       - ATL_JDBC_PASSWORD=jiradbpwd
     ports:
-      - "8082:8080"
+      - "8084:8080"
     depends_on:
       - jira_db
     volumes:

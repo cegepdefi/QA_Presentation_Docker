@@ -19,6 +19,9 @@ docker ps -all
 # remplacer "LeCeminDuProjet" par votre chemin "Path".
 cd LeCeminDuProjet
 
+# changer les droit du folder "03_Cypress_TesterSitePHP" pour que le container a le droit d'acceder.
+sudo chmod -R 755 ./03_Cypress_TesterSitePHP
+
 # faire un "volume" qui va faire le "partage de fichier" entre notre ordinateur et le container Cypress.
 docker run --name mon-cypress -it -v ./03_Cypress_TesterSitePHP:/e2e -w /e2e cypress/included:8.2.0 --spec cypress/integration/0-SiteWeb_PHP/*.js --browser chrome
 

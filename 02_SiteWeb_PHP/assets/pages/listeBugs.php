@@ -94,9 +94,9 @@
                                 <td id="td_Description_<?php echo $id; ?>" class="tableEmployeDescription">
                                     <?php echo $discriptionBug; ?>
                                     </br></br>
-                                    <button onclick="toggleText(<?php echo 'divReponse_'.$id; ?>)" id="btn_AfficherReponse_<?php echo $id; ?>">afficher la reponse
+                                    <button onclick="toggleText(<?php echo $id; ?>)" id="btn_AfficherReponse_<?php echo $id; ?>">afficher la reponse
                                         bug<?php echo $id; ?></button>
-                                    <div id="div_Reponse_<?php echo $id; ?>" style="display:none;">
+                                    <div id="<?php echo $id; ?>" style="display:none;">
                                         <?php echo $responseBug; ?>
                                     </div>
                                 </td>
