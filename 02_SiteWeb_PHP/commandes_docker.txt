@@ -1,3 +1,7 @@
 # https://github.com/cegepdefi
 
+# changer les droit du folder "02_SiteWeb_PHP" pour que le container a le droit d'acceder.
+sudo chmod -R 755 ./02_SiteWeb_PHP
+
+# creer le container pour le site web PHP.
 docker run --name siteWebPHP -p 8082:80 -d -v ./02_SiteWeb_PHP/:/opt/lampp/htdocs/ tomsik68/xampp
