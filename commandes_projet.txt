@@ -9,20 +9,21 @@ docker images
 # vous deplacer dans le folder "Presentation_Docker"
 cd ~/Downloads/Presentation_Docker
 
-# changer les droit du folder "LePojet" pour que le container a le droit d'acceder.
-sudo chmod -R 755 ./LeProjet
+# changer les droit du folder "01_PageWeb_StatiqueSimple" pour que le container a le droit d'acceder.
+sudo chmod -R 755 ./01_PageWeb_StatiqueSimple
 
 # creer le container avec notre projet.
 # 1) changer "nom-container".
-# 2) "./LeProjet/" este le chemin absolut du folder "LeProjet" pour le partager avec le container.
+# 2) "./01_PageWeb_StatiqueSimple/" este le chemin absolut du folder "01_PageWeb_StatiqueSimple" pour le partager avec le container.
 # 3) httpd est le nom de l'image apache que nous avon telecharge.
 # 4) 80 est le port de apache "Du container".
-# 5) 8080 est le port pour nous
+# 5) 8081 est le port pour nous
 # "il se peut que d'autre service utilise deja le port 80 dans nottre ordinateur Ubuntu,
-# donc on utilise le port 8080. on peut le changer pour un autre port
-# exemple: (8081:80) ou (8082:80). mais on ne peut pas changer le port du service apache du container (80)".
+# donc on utilise le port 8081. on peut le changer pour un autre port
+# exemple: (8082:80) ou (8083:80). mais on ne peut pas changer le port du service apache du container (80)".
+
 # on ne peut pas changer le chemin d'apache du container "/usr/local/apache2/htdocs/".
-docker run -dit --name nom-container -p 8080:80 -v ./LeProjet/:/usr/local/apache2/htdocs/ httpd:latest
+docker run -dit --name nom-container -p 8081:80 -v ./01_PageWeb_StatiqueSimple/:/usr/local/apache2/htdocs/ httpd:latest
 
 # afficher la liste de containers pour voir si nottre container a ete cree.
 # le "CONTAINER ID" est importante pour les commandes "STOP, START et RM"
@@ -32,16 +33,16 @@ docker ps -all
 # si le "STATUS" du container dit "Exited", cela signifi que le container es arrete.
 
 # ouvrir firefox et ecrire
-localhost:8080
+localhost:8081
 
 # si vous avez un message qui dit "Vous avez pas le droit d'acces",
-# vous devez verifier l'acces que vous avez donnes au folder "LePojet" et aussi voir le firewall.
+# vous devez verifier l'acces que vous avez donnes au folder "01_PageWeb_StatiqueSimple" et aussi voir le firewall.
 
 # pour arreter un container il faut son ID, utiliser la commande "docker ps -all" pour trouver l'ID.
-docker stop id
+docker stop idContainer
 
 # pour effacer un container il faut son ID, utiliser la commande "docker ps -all" pour trouver l'ID.
-docker rm id
+docker rm idContainer
 
 # pour effacer une image
-
+docker rmi idImage

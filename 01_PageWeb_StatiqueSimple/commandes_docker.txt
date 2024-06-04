@@ -1,0 +1,3 @@
+# https://github.com/cegepdefi
+
+docker run -dit --name nom-container -p 8081:80 -v ./01_PageWeb_StatiqueSimple/:/usr/local/apache2/htdocs/ httpd:latest

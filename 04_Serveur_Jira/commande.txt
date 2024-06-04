@@ -1,0 +1,11 @@
+# Vous deplacer dans cette repertoire
+cd cheminRepertoire
+
+# Creer l'image
+docker build -t mon-serveur-jira .
+
+# creer container avec l'image
+docker-compose up -d
+
+# pour ouvrir le site web
+http://IP:8082/

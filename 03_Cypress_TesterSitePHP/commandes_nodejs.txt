@@ -1,0 +1,31 @@
+# link: https://youtu.be/B4r2h84tGEM?list=PLhW3qG5bs-L9LTfxZ5LEBiM1WFfvX3dJo&t=225
+
+# installer nodeJS
+aller dans le siteweb de nodejs et l'installer.
+
+# voir version de nodeJS.
+node -v
+
+# voir version de npm.
+npm -v
+
+# initialiser le projet "il va creer le fichier package.json".
+npm init -y
+
+# installer cypress version 9.7.0 "il va telecharger cypress et creer le folder node_modules et intaller cypress dans set folder".
+# node_modules = 17MB
+npm install cypress@9.7.0
+
+# voir version de cypress
+npx cypress -v
+
+# verifier pour etre sur que cypres a ete installe correctement
+npx cypress verify
+
+# ouvrir Cypress
+npx cypress open
+
+# dans le folder "cypres/integration" nous allons trouver 2 exemples "1-getting-started et 2-advanced-examples".
+# dans le folder "cypres/integration" nous allons trouver "0-SiteWeb_PHP", il contien notre script de test pour notre site web PHP. 
+# 1) le container docker SiteWeb_PHP doit etre en execution. Copier URL/IP du SiteWeb_PHP du container.
+# 2) modifier le fichier spec.cy.js et changer le URL/IP. Le fichier est dans "cypres/integration".

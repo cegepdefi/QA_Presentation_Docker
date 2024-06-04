@@ -1,0 +1,24 @@
+# link: https://youtu.be/3wi_EZID0xs?t=284
+
+# telecharger image cypres de DockerHub
+docker pull cypress/included:8.2.0
+
+# voir liste des images telecharges
+docker images
+
+# creer container cypress
+docker run -it --entrypoint=cypress cypress/included:8.2.0 info
+
+# il va afficher les navigateurs qui sont installes dans le container "Chrome et Firefox".
+# il va afficher la version de Cypress et memoire RAM available.
+
+# voir liste des containers
+docker ps -all
+
+# se deplacer dans le folder du projet qui contiens le code JavaScript Cypress.
+# remplacer "LeCeminDuProjet" par votre chemin "Path".
+cd LeCeminDuProjet
+
+# faire un "volume" qui va faire le "partage de fichier" entre notre ordinateur et le container Cypress.
+docker run --name mon-cypress -it -v ./03_Cypress_TesterSitePHP:/e2e -w /e2e cypress/included:8.2.0 --spec cypress/integration/0-SiteWeb_PHP/*.js --browser chrome
+
