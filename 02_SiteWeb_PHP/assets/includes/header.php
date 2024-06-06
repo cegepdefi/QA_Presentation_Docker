@@ -1,15 +1,19 @@
 <!-- https://github.com/cegepdefi -->
 
-<?php $urlMain = "http://" . $_SERVER['HTTP_HOST']; ?>
+<script>
+    document.cookie = "url=" + window.location.href;
+</script>
+<?php
+$domaine = parse_url($_COOKIE['url']);
+$urlMain = $domaine['scheme'] . $domaine['host'];
+?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="menu">
     <a id="btn_logo" class="navbar-brand" href="https://github.com/cegepdefi">
-        <img id="imgLogo" src="https://avatars.githubusercontent.com/u/93592584?v=4" width="30" height="30"
-            class="d-inline-block align-top">
+        <img id="imgLogo" src="https://avatars.githubusercontent.com/u/93592584?v=4" width="30" height="30" class="d-inline-block align-top">
         @Cegepdefi
     </a>
-    <button id="btn_menuToggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button id="btn_menuToggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="div_menu" class="collapse navbar-collapse" id="navbarText">

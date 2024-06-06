@@ -2,10 +2,17 @@
 
 <section class="card-group m-3 p-3 gap-5 shadow">
 
+    <script>
+        document.cookie = "url=" + window.location.href;
+    </script>
     <?php
-    $urlMain = "http://" . $_SERVER['HTTP_HOST'];
-    include_once ("./pages/creerEmploye.php");
-    include_once ("./pages/modifierEmploye.php");
+    $domaine = parse_url($_COOKIE['url']);
+    $urlMain = $domaine['scheme'] . $domaine['host'];
+    ?>
+
+    <?php
+    include_once("./pages/creerEmploye.php");
+    include_once("./pages/modifierEmploye.php");
     ?>
 
     <div class="container-xl">
@@ -17,8 +24,7 @@
                             <h2>Liste des employés</h2>
                         </div>
                         <div class="col-sm-4">
-                            <button id="creerEmploye" class="btn btn-success btn-block" data-toggle="modal"
-                                data-target="#formAjouterEmploye">Ajouter un
+                            <button id="creerEmploye" class="btn btn-success btn-block" data-toggle="modal" data-target="#formAjouterEmploye">Ajouter un
                                 employé</button>
                         </div>
                     </div>
@@ -51,9 +57,9 @@
             url: './includes/listeEmploye.php',
             type: 'get',
             dataType: 'json',
-            success: function (donees) {
+            success: function(donees) {
                 var filas = '';
-                $.each(donees, function (index, getDonnee) {
+                $.each(donees, function(index, getDonnee) {
                     filas += `
                     <tr id="trEmploye_${getDonnee.id}">
                         <td id="idEmploye_${getDonnee.id}"> ${getDonnee.id} </td>
@@ -81,7 +87,7 @@
     remplir_LeTableau();
 
     // Supprimer Employe
-    $(document).on('click', '.Supprimer', function (e) {
+    $(document).on('click', '.Supprimer', function(e) {
         e.preventDefault(); // Empêcher l'action par défaut du lien
         var id = $(this).attr('id').replace('SupprimerEmploye_', ''); // Récupérer l'ID des données à supprimer
 
@@ -90,8 +96,10 @@
             $.ajax({
                 url: './includes/supprimerEmploye.php', // L'URL du script PHP qui a supprimé les données
                 type: 'post',
-                data: { id: id },
-                success: function (response) {
+                data: {
+                    id: id
+                },
+                success: function(response) {
                     // Si la suppression a réussi, supprimez la ligne du tableau
                     if (response == 'success') {
                         $('#SupprimerEmploye_' + id).closest('tr').remove();
@@ -104,7 +112,7 @@
     });
 
     // BTN modifier donnee Employe
-    $(document).on('click', '.modifier', function (e) {
+    $(document).on('click', '.modifier', function(e) {
         e.preventDefault(); // Empêcher l'action par défaut du lien
         var id = $(this).attr('id').replace('modifierEmploye_', ''); // Récupérer l'ID des données à modifier
         // Enregistrez l'ID dans localStorage
@@ -113,9 +121,11 @@
         $.ajax({
             url: './includes/trouverEmploye.php',
             type: 'get',
-            data: { id: id },
+            data: {
+                id: id
+            },
             dataType: 'json',
-            success: function (response) {
+            success: function(response) {
                 // Remplissez les champs du formulaire avec les données de l'employé
                 $('#modifierPhoto').val(response.photo);
                 $('#modifierNom').val(response.nom);

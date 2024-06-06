@@ -14,7 +14,13 @@
 
 <section class="card-group m-3 p-3 gap-5 shadow">
 
-    <?php $urlMain = "http://" . $_SERVER['HTTP_HOST']; ?>
+    <script>
+        document.cookie = "url=" + window.location.href;
+    </script>
+    <?php
+        $domaine = parse_url($_COOKIE['url']);
+        $urlMain = $domaine['scheme'] . $domaine['host'];
+    ?>
 
     <div class="container-xl">
         <h1>Environnement de test <span style="font-size: 20px;">v1.0</spans>

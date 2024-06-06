@@ -35,5 +35,5 @@ sudo apt install -y docker-compose
 # Ajoutez l'utilisateur actuel au groupe Docker pour éviter d'utiliser sudo lors de l'exécution de Docker
 sudo usermod -aG docker ${USER}
 
-echo "Installation complete. Please log out and log back in for changes to take effect."
+echo "Installation complète. Redemarrer pour que les modifications prennent effet."
 sudo reboot
