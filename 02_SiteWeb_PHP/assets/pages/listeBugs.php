@@ -18,9 +18,7 @@
         document.cookie = "url=" + window.location.href;
     </script>
     <?php
-        // $domaine = parse_url($_COOKIE['url']);
         $urlMain = $_COOKIE['url'];
-        // $urlMain = $domaine['scheme'] . $domaine['host'];
     ?>
 
     <div class="container-xl">
@@ -93,7 +91,7 @@
                                     <?php echo $id; ?>
                                 </td>
                                 <td id="td_VoirPage_<?php echo $id; ?>">
-                                    <a href="<?php echo $urlMain . '/bug1/'; ?>" id="btn_VoirPage_<?php echo $id; ?>" class="btn btn-secondary btn-lg active"
+                                    <a href="<?php echo $urlMain . 'bug1/'; ?>" id="btn_VoirPage_<?php echo $id; ?>" class="btn btn-secondary btn-lg active"
                                         role="button" aria-pressed="true">
                                         Voir page
                                     </a>

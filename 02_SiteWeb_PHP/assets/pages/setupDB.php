@@ -1,12 +1,7 @@
-<script>
-    document.cookie = "url=" + window.location.href;
-</script>
 
 <?php
-// Obtenez le domaine et le port actuels
-$domaine = parse_url($_COOKIE['url']);
 // Construire l'URL de destination
-$urlDestination = $domaine['scheme'] . $domaine['host'] . "/phpmyadmin";
+$urlDestination = $_COOKIE['url'] . "/phpmyadmin";
 ?>
 
 <div id="baseDeDonnees" class="baseDeDonnees">

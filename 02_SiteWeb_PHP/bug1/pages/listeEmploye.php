@@ -1,13 +1,8 @@
 <!-- https://github.com/cegepdefi -->
 
 <section class="card-group m-3 p-3 gap-5 shadow">
-
-    <script>
-        document.cookie = "url=" + window.location.href;
-    </script>
     <?php
-    $domaine = parse_url($_COOKIE['url']);
-    $urlMain = $domaine['scheme'] . $domaine['host'];
+    $urlMain = $_COOKIE['url'];
     ?>
 
     <?php

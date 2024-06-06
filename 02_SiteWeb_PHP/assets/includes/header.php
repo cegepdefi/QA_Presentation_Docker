@@ -1,11 +1,7 @@
 <!-- https://github.com/cegepdefi -->
 
-<script>
-    document.cookie = "url=" + window.location.href;
-</script>
 <?php
-$domaine = parse_url($_COOKIE['url']);
-$urlMain = $domaine['scheme'] . $domaine['host'];
+$urlMain = $_COOKIE['url'];
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="menu">
