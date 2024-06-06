@@ -18,8 +18,9 @@
         document.cookie = "url=" + window.location.href;
     </script>
     <?php
-        $domaine = parse_url($_COOKIE['url']);
-        $urlMain = $domaine['scheme'] . $domaine['host'];
+        // $domaine = parse_url($_COOKIE['url']);
+        $urlMain = $_COOKIE['url'];
+        // $urlMain = $domaine['scheme'] . $domaine['host'];
     ?>
 
     <div class="container-xl">
